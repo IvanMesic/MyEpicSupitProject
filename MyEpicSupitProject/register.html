@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <form id="registerForm" class="register-form">
+        <input type="text" id="registerUsername" name="username" placeholder="Username" required>
+        <input type="password" id="registerPassword" name="password" placeholder="Password" required>
+        <button type="submit">Register</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+            const data = {
+                "Username": username, 
+                "password": password
+            };
+
+            $.ajax({
+                "url": "https://www.fulek.com/data/api/user/register",
+                "method": "POST",
+                "data": JSON.stringify(data),
+                "contentType": "application/json"
+            })
+            .done(function (data) {
+                if(data.isSuccess === true) {
+                    alert("New account created");
+                    window.location.href = 'index.html';
+                } else {
+                    alert("Failed to create account");
+                }
+            })
+            .fail(function () {
+                alert("Check your connection");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+.custombutton2 {
+    padding: 15px;
+    border: hidden;
+}
+
+.pts {
+    padding-top: 15px;
+}
+
+.p0 {
+    padding: 0px;
+}
+
+.input-group-addon {
+    width: 100px;
+}
+
+body {
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    height: 100vh;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000;
+}
+
+.andrija {
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+    font-size: 5rem;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    white-space: nowrap;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.left {
+    text-align: left;
+    z-index: 15;
+    font-size: 5rem;
+    text-shadow: 1px 1px 1px black;
+    padding-top: 2rem;
+    padding-bottom: 0px;
+}
+
+.background {
+    position: absolute;
+    z-index: -3;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 350px;
+    max-height: 350px;
+    min-width: 100%;
+    background-image: url('../images/algebra/zaiskri-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.videocontainer {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .colspace {
+        padding-top: 50px;
+    }
+}
+
+#background {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#background>video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+@media (min-aspect-ratio: 16/9) {
+    #background>video {
+        height: 300%;
+        top: -100%;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    #background>video {
+        width: 300%;
+        left: -100%;
+    }
+}
+
+/* 2. If supporting object-fit, overriding (1): */
+@supports (object-fit: cover) {
+    #background>video {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.modal-dialogg {
+    z-index: 1050;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.register-form {
+    width: 300px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #00000020;
+}
+.register-form input[type="text"], .register-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.register-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.register-form button:hover {
+    background-color: #0056b3;
+}

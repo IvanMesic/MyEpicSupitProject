@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <form id="loginForm" class="login-form">
+        <input type="text" id="loginUsername" name="username" placeholder="Username" required>
+        <input type="password" id="loginPassword" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+
+    fetch('https://www.fulek.com/data/api/user/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.isSuccess) {
+            // Login was successful, store the JWT token and hide login and register buttons
+            localStorage.setItem('jwt', data.data.token);
+            // Redirect to index.html
+            window.location.href = 'index.html';
+        } else {
+            // Login failed, you can show an error message
+            alert('Login failed');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+    </script>
+</body>
+</html>

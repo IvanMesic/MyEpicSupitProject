@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>src= "./script.js"</script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
+  <!-- Optional custom CSS -->
+  <link rel="stylesheet" href="./styles.css">
+
+  <title>Your Page Title</title>
+</head>
+
+<body>
+  <p id="typeme" class="andrija"></p>
+  <div id="background">
+    <video autoplay muted loop class="videocontainer">
+      <source src="./video/typingOnlaptop.mp4" type="video/mp4">
+    </video>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-brand">
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+            <img style="max-height: 23px;padding: 0px;" alt="Algebra Logo"
+              src="./images/algebra/Algebra-logo.png">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-house-fill"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="./aboutus.html"><i class="bi bi-info-circle-fill"></i>About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="./news.html"><i class="bi bi-calendar3"></i> News</a></li>
+            <li class="nav-item"><a class="nav-link" href="./courses.html"><i class="bi bi-book-fill"></i> Courses</a></li>
+            <li class="nav-item", id="loginLink"><a class="nav-link" href="./login.html"><i class="bi bi-book-fill"></i>Login</a></li>
+            <li class="nav-item" id = "registerLink"><a class="nav-link" href="./register.html"><i class="bi bi-book-fill"></i>Register</a></li>
+            </ul>
+          <ul class="navbar-nav ml-auto"><li class="nav-item">
+              <button id="contactModalButton" class="btn btn-dark nav-pills custombutton2" style="padding: 15px; border: hidden;" data-bs-toggle="modal" data-bs-target="#contactModal">
+                <i class="far fa-envelope"></i> Contact</button></li>
+            <li class="nav-item" id="logoutLink">
+              <a class="nav-link" href="#"><i class="bi bi-box-arrow-right" ></i> Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Contact Us</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="contactForm" action="https://www.fulek.com/mvc/supit/project-contact-form">
+              <div class="form-group">
+                <h2>Comtact Form</h2>
+                <p>In order to contact us, please fill in the form</p>
+              </div>
+              <div class="input-group">
+                <label class="input-group-addon">Name</label>
+                <input class="form-control" id="name" name="name" required>
+              </div>
+              <div class="input-group pts">
+                <label class="input-group-addon">Email</label>
+                <input class="form-control" id="email" name="email" required>
+              </div>
+              <div class="form-group pts" style="margin-bottom: 0px;">
+                <select form="contactForm" name="importance">
+                  <option value="Low">Low Priority</option>
+                  <option value="Medium">Medium Priority</option>
+                  <option value="High">High Priority</option>
+                </select>
+              </div>
+              <div class="form-group pts" style="margin-bottom: 0px;">
+                <label for="newsletter" class="p0">Newsletter</label>
+                <input id="newsletter" name="newsletter" type="checkbox" class="p0">
+              </div>
+              <div class="form-group pts">
+                <label class="" for="message">Message</label>
+                <textarea form="contactForm" id="message" name="message" class="form-control"
+                  placeholder="Write your message here" required></textarea>
+              </div>
+              <div class="form-group">
+                <input id="submit" class="btn custombutton" type="submit">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- TypeIt JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.min.js"></script>
+
+  <script>
+new TypeIt("#typeme", {
+    speed: 150,
+    waitUntilVisible: true
+})
+    .type('<span class="middle">Budi izvrstan u onome što vidiš!</span>', { delay: 1000 })
+    .delete(6)
+    .type('voliš.', { delay: 1000 })
+    .type('<br><span class="red left">ZAISKRI</span>.')
+    .go();
+
+document.addEventListener('DOMContentLoaded', function() {
+            var logoutLink = document.getElementById('logoutLink');
+
+            logoutLink.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                localStorage.removeItem('jwt');
+
+                location.reload(); // Reload the current page
+            });
+        });
+
+    
+if (localStorage.getItem('jwt')) {
+  // If the user is logged in, hide the Login and Register buttons
+  document.getElementById('loginLink').style.display = 'none';
+  document.getElementById('registerLink').style.display = 'none';
+  document.getElementById('logoutLink').style.display = 'block';
+} else {
+  // If the user is not logged in, hide the Logout button
+  document.getElementById('logoutLink').style.display = 'none';
+}
+
+  </script>
+</body>
+
+</html>
